@@ -1,0 +1,41 @@
+Projeto de documentação (Tentando aprender)
+
+Partes do planejamento de Projeto:
+    1 - Class Paginas:
+        Criar páginas para cada ação
+        (menuPrincipal, lerNotas, novoCadastro, deletarCadastro, atualizarCadastro, fecharSistema)
+
+    2 - Class ValidarDados:
+        Criar funções de validação para cada página
+        (validarTitulo, validarNota, validarSeExiste, etc...)
+
+    3 - Class ManipularDados:
+        Criar funções para manipular dados
+        (cadastrarNota, deletarNota, modificarNota)
+
+    4 - Class PedirDados
+        Criar funções que pedem as informações sobre as notas
+        (pedirTitulo, pedirDescricao, confirmarSaida, etc...)
+
+    5 - Class PadroesDePagina
+        Criar funções para padronizar as páginas
+        (cabecalho, linhas, etc...)
+
+Escopo do Projeto (Escopo seria a palavra correta?)
+    1 - Crud Básico; (Usando o titulo das notas como chave primária)
+        Notas armazenadas em memória;
+        Limite de 10 notas por rodada no programa.
+
+    2 - Cada nota terá: Título, Texto, e Data;
+        Criar Arrays para cada parte (Titulo, texto, data)
+
+    3 - Menu em Loop
+        Usar repetição while (!saida)
+
+    4 - Separação em Métodos
+        Os mesmos que citados nas classes acima
+
+    5 - Sem usar POO
+        Apenas lógica básica
+
+(nota para Kyle (ChatGPT: Favor analisar se a ideia de estrutura (Partes do planejamneto...) e eficacia do sistema considerando meu nível atual)
