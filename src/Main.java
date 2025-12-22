@@ -28,6 +28,18 @@ public class Main {
                 case 2:
                     Paginas.cadastrarNotas();
                     break;
+                case 3:
+                    Paginas.modificarNota();
+                    break;
+                case 4:
+                    Paginas.deletarNota();
+                    break;
+                case 5:
+                    PedirDados.scan.close();
+                    saida = Paginas.encerrarPrograma();
+                    break;
+                default:
+                    System.out.println("<Erro: Opção Inválida> Favor insira uma das opções listadas!.");
             }
         }
 

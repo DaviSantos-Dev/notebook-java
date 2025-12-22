@@ -1,9 +1,12 @@
-Projeto de documentação (Tentando aprender)
+Projeto de documentação
+Obs.: Projeto feito antes de aprender POO, apenas para consolidação, antes de aprender POO.
+      Não houve tratamento de erros no programa, pois ainda não havia aprendido.
+      Esse arquivo é uma primeira tentativa de documentação, ainda em aprendizado.
 
 Partes do planejamento de Projeto:
     1 - Class Paginas:
         Criar páginas para cada ação
-        (menuPrincipal, lerNotas, novoCadastro, deletarCadastro, atualizarCadastro, fecharSistema)
+        (menuPrincipal, lerNotas, cadastrarNotas, modificarNota, deletarNota, encerrarPrograma)
 
     2 - Class ValidarDados:
         Criar funções de validação para cada página
@@ -21,7 +24,7 @@ Partes do planejamento de Projeto:
         Criar funções para padronizar as páginas
         (cabecalho, linhas, etc...)
 
-Escopo do Projeto (Escopo seria a palavra correta?)
+Escopo do Projeto (Descrição de desafio)
     1 - Crud Básico; (Usando o titulo das notas como chave primária)
         Notas armazenadas em memória;
         Limite de 10 notas por rodada no programa.
@@ -37,5 +40,3 @@ Escopo do Projeto (Escopo seria a palavra correta?)
 
     5 - Sem usar POO
         Apenas lógica básica
-
-(nota para Kyle (ChatGPT: Favor analisar se a ideia de estrutura (Partes do planejamneto...) e eficacia do sistema considerando meu nível atual)

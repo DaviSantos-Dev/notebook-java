@@ -4,7 +4,7 @@ public class PedirDados {
     static Scanner scan = new Scanner(System.in);
 
     static String pedirTitulo() {
-        System.out.println("Digite o TItulo: ");
+        System.out.println("Digite o Titulo: ");
         return scan.nextLine();
     }
 
@@ -20,7 +20,7 @@ public class PedirDados {
             if (saida.equals("S")) {
                 return "Sair";
             } else if (saida.equals("N")) {
-                return "Nao sair";
+                return "Não sair";
             } else {
                 System.out.println("<ERRO: Valor Inválido> Favor tente novamente.");
             }

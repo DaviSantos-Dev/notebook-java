@@ -23,30 +23,86 @@ public class Paginas {
     }
 
     public static void cadastrarNotas() {
+        if (Main.quantidadeDeCadastros == 10) { //Retorna para o menu principal caso lista esteja cheia
+            System.out.println("Máximo de notas atingido, para adicionar uma nova nota, exclua outra já existente");
+        }
         while (true) {
             PadroesDePagina.cabecalho("Cadastrar nova Nota");
             String tituloAtual = PedirDados.pedirTitulo();
             boolean tituloValido = ValidarDados.validarTitulo(tituloAtual);
-            boolean titulUnico = ValidarDados.validarSeTituloExiste(tituloAtual, Main.titulos);
+            boolean tituloExiste = ValidarDados.validarSeTituloExiste(tituloAtual);
             if (!tituloValido) { //Validando Titulo, se invalido imprime a mensagem
                 System.out.println("<Erro: Valor Inválido> Tente um título ue tenha entre 3 a 20 caractéres!");
                 continue;
             }
-            if (!titulUnico) { // Testa se o titulo já existe, se existe imprime a mensagem
+            if (tituloExiste) { // Testa se o titulo já existe, se existe imprime a mensagem
                 System.out.println("Erro: Título duplicado> Tente novamente!");
                 continue;
             }
             String notaAtual = PedirDados.pedirDescricao(); //Pegando o conteúdo da anotação
 
-            if (titulUnico && tituloValido) {
-                ManipularDados.cadastrarTitulo(tituloAtual, Main.quantidadeDeCadastros);
-                ManipularDados.cadastrarNota(notaAtual, Main.quantidadeDeCadastros);
-                ManipularDados.cadastrarData(Main.quantidadeDeCadastros);
+            if (!tituloExiste && tituloValido) {
+                int indexLivre = ValidarDados.verificarIndexLivre();
+                ManipularDados.cadastrarTitulo(tituloAtual, indexLivre);
+                ManipularDados.cadastrarNota(notaAtual, indexLivre);
+                ManipularDados.cadastrarData(indexLivre);
                 Main.quantidadeDeCadastros++;
                 break;
             }
+        }
+    }
 
+    public static void modificarNota() {
+        while (true) {
+            if (Main.quantidadeDeCadastros == 0) { // Se não houver cadastros ainda, volta para página inicial.
+                System.out.println("Não há cadastros feitos ainda.");
+                break;
+            }
+            PadroesDePagina.cabecalho("Alterar Nota");
+            String tituloLocal = PedirDados.pedirTitulo();
+            boolean tituloExiste = ValidarDados.validarSeTituloExiste(tituloLocal);
+            int notaIndex = ValidarDados.encontrarIndex(tituloLocal);
+            if (tituloExiste && notaIndex != -1) {
+                String alteracao = PedirDados.pedirDescricao();
+                Main.notas[notaIndex] = alteracao;
+                System.out.println("Alteração feita com sucesso!");
+                break;
+            } else {
+                System.out.println("<Erro: Valor inexistente> Essa nota não existe!");
+            }
 
         }
     }
+
+    public static void deletarNota() {
+        while (true) {
+            if (Main.quantidadeDeCadastros == 0) { // Se não houver cadastros ainda, volta para página inicial.
+                System.out.println("Não há cadastros feitos ainda.");
+                break;
+            }
+            PadroesDePagina.cabecalho("Deletar Nota");
+            String tituloLocal = PedirDados.pedirTitulo();
+            boolean tituloExiste = ValidarDados.validarSeTituloExiste(tituloLocal);
+            int notaIndex = ValidarDados.encontrarIndex(tituloLocal);
+            if (tituloExiste && notaIndex != -1) {
+                ManipularDados.excluirNota(notaIndex);
+                ManipularDados.excluirTitulo(notaIndex);
+                ManipularDados.excluirData(notaIndex);
+                Main.quantidadeDeCadastros--;
+                break;
+            }
+        }
+    }
+
+    public static boolean encerrarPrograma() {
+        PadroesDePagina.cabecalho("Encerrar Programa");
+        String saida = PedirDados.confirmarSaida();
+        if (saida.equals("Sair")) {
+            return true;
+        } else
+            System.out.println("Continuando o programa!");
+        return false;
+
+    }
+
 }
