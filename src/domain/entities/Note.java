@@ -44,6 +44,4 @@ public class Note {
         return "ID: " + id + " Title: " + title +
                 "\nDescription: " + description + "\nDate: " + date;
     }
-
-
 }
